@@ -148,9 +148,20 @@ struct MenuPopoverView: View {
         } label: {
             Label("Open Settings", systemImage: "gearshape")
                 .font(.caption)
+                .fontWeight(.semibold)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 6)
         }
-        .buttonStyle(.bordered)
-        .tint(.surfaceElevated)
+        .buttonStyle(.plain)
+        .foregroundColor(.textPrimary)
+        .background(
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .fill(Color.surfaceElevated)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .stroke(Color.border, lineWidth: 1)
+        )
     }
 
     private var footer: some View {
